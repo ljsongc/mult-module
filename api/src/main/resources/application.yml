@@ -1,0 +1,53 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+      url: jdbc:mysql://114.215.124.29:3306/das?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&createDatabaseIfNotExist=true&useSSL=false
+      username: root
+      password: 12345
+
+
+
+
+
+#  security:
+#     user:
+#       name: admin
+#       password: admin
+
+    # redis相关配置
+  redis:
+      database: 0
+      host: 114.215.124.29
+      port: 6379
+#      password: zhiran123
+      connectionTimeout: 30000
+      prefix: coral_
+      jedis:
+        pool:
+          min-idle: 0
+          max-active: 8
+
+mybatis:
+  mapper-locations:  classpath:mapper/**/*Mapper.xml"
+
+#swagger:
+#  enable: true
+#  basePackage: com.song.api.controller
+#  title: 后台接口文档
+#  description: 优雅的API文档
+#  version: v1.0
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info,health
+  endpoint:
+    restart:
+      enabled: true
+    info:
+      enabled: true
+
